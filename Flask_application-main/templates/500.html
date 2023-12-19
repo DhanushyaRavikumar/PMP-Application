@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>500 Internal Server Error</title>
+    <style>
+        body {
+            background-color: #282828;
+            color: #FFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 6em;
+            animation: glitch 1s linear infinite;
+        }
+
+        .container p {
+            font-size: 1.2em;
+        }
+
+        @keyframes glitch {
+            2%,64% {
+                transform: translate(2px, 0) skew(0deg);
+            }
+            4%,60% {
+                transform: translate(-2px, 0) skew(0deg);
+            }
+            6%,58% {
+                transform: translate(-2px, 0) skew(0deg);
+            }
+            8%,56% {
+                transform: translate(2px, 0) skew(0deg);
+            }
+            10%,54% {
+                transform: translate(-2px, 0) skew(0deg);
+            }
+            12%,52% {
+                transform: translate(2px, 0) skew(0deg);
+            }
+            14%,50% {
+                transform: translate(-2px, 0) skew(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>500</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="50px" height="50px">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 1a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V5a4 4 0 0 1 4-4h6zm-1 1H9a3 3 0 0 0-2.995 2.824L6 5v10a3 3 0 0 0 2.824 2.995L9 18h4a3 3 0 0 0 2.995-2.824L16 15V5a3 3 0 0 0-2.824-2.995L13 2zm-3 5a1 1 0 0 1 1 1v4a1 1 0 0 1-2 0V8a1 1 0 0 1 1-1zm0-5a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1z" />
+        </svg>
+        <p>Oops! Something went wrong on our end. Please try again later.</p>
+    </div>
+</body>
+</html>
