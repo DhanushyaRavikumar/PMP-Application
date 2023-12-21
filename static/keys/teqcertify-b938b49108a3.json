@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "teqcertify",
+  "private_key_id": "b938b49108a3bb332cdc222be72a97734c75e88e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCu6ae+Br9KD3XA\nya5nsT7t0//4+tSbJEEVYsNJ8jRE/qeUE3eN4Cv+M0RNeIIZbCgaZ6atfakmC69k\nUbiHQt8av5CMk8Z59ym9epgfITG/UpqzhdatuGBpJyvy1h0XuSG6+aezDZo5e8nS\nUpF+CHHJprXQDkXubPcJI9kPx4OTEPEoBU149GfSacauCUlWwKElAAOKdm5OWgA0\nTeGPDtRCvHpNyXcKrSeJO80+EAZzC96lNntMD/zrJvT0vM62R4wL0F9Cf5VanfXN\nXnx10fsEnRIcUe1ydCwe/pnnhXl7m11IszMZWeSRXPWofvtK1jX4FEfhhBaY7RBn\nTgvIKadfAgMBAAECggEAJF6LNXT7s2+RgXuuGvt85UDOmbu2F2grbEHz711ARxRY\nTe7aThLNsvZ//kfPbW/SyuLAgpR9Zl7JomdnoiBieZJZgRF9FIEzGaXzGY3yZSDM\n8AUlRUvwKA0wEzc4J2WkQNeGajGq3scBiQ0IGZex6UcTyOYe3luj5i+hA6ntjtd/\noPwmIlVXCe0Rw+bttmz6pfPKI6ANTc5ZsSV1Qkr201SKz6AAJ8DPgoL5WugG9AmB\nZEsYCEYg33ZyJPPRMSUDD+KRwhq9dgWbFp+Yq4hMcCtuR0d13tjfKGDCKkNYKO4c\nc1ehJ8u6f/t6cXYrBZkTand/+9d7RJBmWiwg59e3KQKBgQDnqwspm4e1TtLkg3ab\nftuZtPvtRA/0uRSbLoY56J2ZTO5YkgbArgVG7uM9qevD5J9U77XnOL6nkuzps3Tq\nRRb62A6OGPCianBYTAvlzZ3v7SOIpEkBNEbX2aL13kdvoKjjPKHz/KLAaBWyNCfW\n7NWQ3ORg+jYUit2xdnKIsCWPrQKBgQDBSJrysTsAMKo4ZUkjYdQ2x7h9T0hX2H6l\nTLuRVjiMzmdP41jDGodkGbnushRoM+c91c4yb74yZCGXd8yYeKmtm+CYeLumS3pf\nrOTQpdFqiScYNk6F48OGaB00M4VEmDtvcXSFvYvomHSpbWDFM1ZPVjvcPs1gatUs\nNQ+uE8cEuwKBgEhNo9A6kGJP1ZYoSY5CS3tvdukYQvqYAQxlutK7/OPplMHj4WOl\nbFQ1HosSS1j6M5gosFcX6LkYLATMU4MCSSfE4tYKhp/KJIIKSfRQ9if5lQuCap6L\nmEipzih6VUVLmSpCtDEX+hue4JabnIuBoy3xIv35WYOTy5klZJ2wjCiJAoGAcgIi\nq57Q34bVERjlcEJnS7y43OlkEbT41wYQ6WSDTML++4dttv+x9uCZ5OsT0Hc1Iis4\nSlXRSaX4joCypQkfhPEaJLWqcie5UjAIc+4rPX0TG1wFK0Ky9Vf6Se1N4a0t+clh\nYvXwTc2HmtySpR9n/Lov6vT8ba/2d/IAgrzVursCgYAZ2qkNrvbmiwT6+ujfVZsQ\nGtt/8B4brLMITKFyIi/6VFiXu3vEqY9qPjP9F7bwERctrhJqo3CcIr/juWhkSkKA\nRPSHremwz1Z1P6ItBCKkJxs4PnXYQcPsTX2z8ofuFHcTmBmPmSFCcrwdcFFpNsdW\nIm174G/Ecg/GdrdBmjTnBg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "pms-service-account@teqcertify.iam.gserviceaccount.com",
+  "client_id": "100941358359756912083",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pms-service-account%40teqcertify.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
