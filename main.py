@@ -28,7 +28,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = con_string
 engine = create_engine(con_string)
 db = SQLAlchemy(app)
 app.app_context().push()
-credentials_path = 'static/keys/norse-botany-385814-cd665c2fd7f6.json'
+credentials_path = 'static/keys/teqcertify-b938b49108a3.json'
 storage_client = storage.Client.from_service_account_json(credentials_path)
 BUCKET_NAME = 'pmp-bucket'
 USER_DP_FOLDER = 'user_dp/' 
