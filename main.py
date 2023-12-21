@@ -226,7 +226,7 @@ def show_register():
         user_role = request.form['user_role']
         creation_date = dt.datetime.utcnow() + dt.timedelta(hours=5, minutes=30)
     
-        allowed_domains = ['gwcteq.com', 'teqcertify.com']
+        allowed_domains = ['gwcdata.ai', 'teqcertify.com']
         if not any(email.endswith(domain) for domain in allowed_domains):
             flash('Only gwcteq.com and teqcertify.com emails are allowed to register', 'warning')
             return redirect(url_for('show_register'))
