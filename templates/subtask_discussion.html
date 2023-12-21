@@ -1,0 +1,218 @@
+{% extends "base_layout.html" %}
+
+{% block title %}
+{{ subtask.SubtaskName }} - Subtask Discussion
+{% endblock %}
+
+{% block main %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endfor %}
+{% endwith %}
+
+<!-- Breadcrumb -->
+<nav class="flex text-gray-700 shadow-none p-0 border-b pb-3 bg-transparent my-4" aria-label="Breadcrumb">
+  <ul class="inline-flex items-center space-x-1 md:space-x-3  capitalize">
+    <li class="inline-flex items-center">
+      <a href="{{ url_for('show_user_home') }}"
+        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600">
+        <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+          </path>
+        </svg>
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <div class="flex items-center">
+        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <a href="{{ url_for('project_details', project_id=project.id) }}"
+          class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2">{{ project.ProjectName }}</a>
+      </div>
+    </li>
+    <li>
+      <div class="flex items-center">
+        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <a href="{{ url_for('epic_details', epic_id=epic.id) }}"
+          class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2">{{ epic.EpicName }}</a>
+      </div>
+    </li>
+    <li>
+      <div class="flex items-center">
+        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <a href="{{ url_for('story_details', story_id=story.id) }}"
+          class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2">{{ story.StoryName }}</a>
+      </div>
+    </li>
+    <li aria-current="page">
+      <div class="flex items-center">
+        <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">{{ subtask.SubtaskName }}</span>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+<div class="flex justify-between items-center my-4">
+  <h3 class="uppercase font-bold">{{ subtask.SubtaskName }} - Details</h3>
+    {% if user.User_Role not in ['Member', 'Team Lead'] %}
+    <div>
+      <form action="{{ url_for('update_subtask', subtask_id=subtask.id) }}" method="GET" style="text-align: right;">
+        <button type="submit" class="py-2 px-3 rounded shadow text-sm bg-[#FFC007] capitalize">Update {{ subtask.SubtaskName }} - Subtask</button>
+      </form>
+    </div>
+  {% endif %}
+</div>
+
+
+
+<div class="grid md:grid-cols-2 grid-cols-1 md:gap-4 gap-1 md:mb-5 mb-3 ">
+  <div class="">
+    <div class="bg-white text-black p-3  mb-1 shadow-sm rounded">
+      <h5 class="font-bold text-[#264653]">Start Date : <span class="font-normal text-black">{{ subtask.StartDate
+          }}</span></h5>
+    </div>
+    <div class="bg-white text-black p-3  mb-1 shadow-sm rounded">
+      <h5 class="font-bold  text-[#264653]">Due Date : <span class="font-normal text-black">{{ subtask.EndDate }}</span>
+      </h5>
+    </div>
+    <div class="bg-white text-black p-3  mb-1 shadow-sm rounded">
+      <h5 class="font-bold  text-[#264653]">Creation Date : <span class="font-normal text-black">{{
+          subtask.CreationDate.date() }}</span></h5>
+    </div>
+    <div class="bg-white text-black p-3  mb-1 shadow-sm rounded">
+      <h5 class="font-bold  text-[#264653]">Created By : <span class="font-normal text-black">{{ created_by_user.Name }}</span></h5>
+    </div>
+    <div class="bg-white text-black p-3  mb-1 shadow-sm rounded">
+      <h5 class="font-bold  text-[#264653]">Assigned To : <span class="font-normal text-black">{{ assigned_to_user.Name }}</span></h5>
+    </div>
+    <div class="bg-white text-black p-3  mb-1 shadow-sm rounded">
+      <h5 class="font-bold  text-[#264653]">Subtask Status : <span class="font-normal text-black">{{
+          subtask.Status }}</span></h5>
+    </div>
+
+  </div>
+  <div class="">
+    <div class="bg-white text-black p-3  mb-1 shadow-sm rounded">
+      <h5 class="font-bold  text-[#264653]">Subtask Type : <span class="font-normal text-black">{{
+          subtask.Type }}</span></h5>
+    </div>
+    <div class="bg-white text-black p-3  mb-1 shadow-sm rounded">
+      <h5 class="font-bold  text-[#264653]">Subtask Priority : <span class="font-normal text-black">{{
+          subtask.Priority }}</span></h5>
+    </div>
+    {% if subtask.CompletionTime %}
+    <div class="bg-white text-black p-3  mb-1 shadow-sm rounded">
+      <h5 class="font-bold  text-[#264653]">Completion Time : <span class="font-normal text-black">{{
+          subtask.CompletionTime }}</span></h5>
+    </div>
+    {% endif %}
+    {% if subtask.EndDate %}
+    <div class="bg-white text-black p-3  mb-1 shadow-sm rounded">
+      <h5 class="font-bold  text-[#264653]">Time Alloted : <span class="font-normal text-black">{{
+          subtask.EndDate - subtask.StartDate }}</span></h5>
+    </div>
+    {% endif %}
+    {% if subtask.CompletionTime %}
+    <div class="bg-white text-black p-3  mb-1 shadow-sm rounded">
+      <h5 class="font-bold  text-[#264653]">Time Taken : <span class="font-normal text-black">{{
+          subtask.CompletionTime - subtask.CreationDate }}</span></h5>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<div class="bg-white text-black p-3 shadow-sm rounded w-full">
+  <h5 class="font-bold text-[#264653] pb-2">Subtask Description</h5>
+  <p class=" overflow-y-scroll text-justify pr-4 leading-7" style="height: 100px;">{{ subtask.SubtaskDescription }}
+  </p>
+</div>
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title font-bold">Add Discussion</h4>
+        </div>
+        <div class="card-body">
+          <form action="{{ url_for('subtask_discussion', subtask_id=subtask.id) }}" method="POST">
+            <div class="form-group">
+              <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Enter your comment" required></textarea>
+            </div>
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full w-auto px-5 py-2.5 text-center">Add Discussion</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<br>
+
+{% if discussions %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title font-bold">Discussions</h4>
+      </div>
+      <div class="card-body" style="max-height: 400px; overflow-y: scroll;">
+        <ul class="list-group">
+          {% for discussion in discussions|sort(reverse=True, attribute='Timestamp') %}
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>{{ discussion.user.Name }}</strong> - {{ discussion.Timestamp }}</p>
+                <p>{{ discussion.Comment }}</p>
+              </div>
+              <div class="col-md-6 text-right">
+                {% if discussion.Seen %}
+                  <span class="badge badge-success">Seen</span>
+                {% else %}
+                  {% if discussion.Sent %}
+                    <span class="badge badge-info">Sent</span>
+                  {% else %}
+                    <span class="badge badge-secondary">Pending</span>
+                  {% endif %}
+                {% endif %}
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

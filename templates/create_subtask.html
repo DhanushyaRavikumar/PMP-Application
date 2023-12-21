@@ -1,0 +1,96 @@
+{% extends "base_layout.html" %}
+
+{% block title %}
+Create Sub-Task
+{% endblock %}
+
+{% block main %}
+
+<h2 class="text-center text-xl uppercase font-bold mb-6">Create Sub-Task</h2>
+
+  <form action="{{ url_for('add_subtask', story_id=story_id) }}" method="POST"
+    class="max-w-screen-sm mx-auto my-0 bg-white p-3 rounded-md shadow-sm">
+  
+    <div class="flex items-center md:flex-row flex-col mb-3">
+      <div class="w-full md:mb-0 mb-3">
+        <label for="subtask_name" class="block mb-2 text-sm font-medium text-gray-900">Sub-Task Name <span
+            class="text-red-600">*</span></label>
+        <input type="text" id="subtask_name" name="subtask_name"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          placeholder=" " required>
+      </div>
+      <div class="md:mx-3"></div>
+      <div class="w-full md:mb-0 mb-3">
+        <label for="assigned_to" class="block mb-2 text-sm font-medium text-gray-900">Assigned to <span
+            class="text-red-600">*</span></label>
+        <select id="assigned_to" name="assigned_to"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          required>
+          <option value="">-- Select --</option>
+          {% for all_user in all_users %}
+          <option value="{{ all_user.id }}">{{ all_user.Name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  
+    <div class="mb-3">
+      <label for="subtask_description" class="block mb-2 text-sm font-medium text-gray-900">Sub-Task description <span
+          class="text-red-600">*</span></label>
+      <textarea id="subtask_description" name="subtask_description"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        placeholder=" " rows="5" required></textarea>
+    </div>
+
+    <div class="flex items-center md:flex-row flex-col mb-3">
+      <div class="w-full md:mb-0 mb-3">
+        <label for="subtask_priority" class="block mb-2 text-sm font-medium text-gray-900">Subtask Priority <span
+            class="text-red-600">*</span></label>
+        <select id="subtask_priority" name="subtask_priority" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          required>
+          <option value="">-- Select --</option>
+          <option value="Urgent">Urgent</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+      <div class="md:mx-3"></div>
+      <div class="w-full md:mb-0 mb-3">
+        <label for="subtask_type" class="block mb-2 text-sm font-medium text-gray-900">Subtask Type <span
+            class="text-red-600">*</span></label>
+        <select id="subtask_type" name="subtask_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          required>
+          <option value="">-- Select --</option>
+          <option value="Task">Task</option>
+          <option value="Bug">Bug</option>
+        </select>
+      </div>
+    </div>
+
+
+  
+    <div class="flex items-center md:flex-row flex-col mb-3">
+      <div class="w-full md:mb-0 mb-3">
+        <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900">Start date <span
+            class="text-red-600">*</span></label>
+        <input type="date" id="start_date" name="start_date"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          placeholder=" " required>
+      </div>
+      <div class="md:mx-3"></div>
+      <div class="w-full md:mb-0 mb-3">
+        <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900">End date <span
+            class="text-red-600">*</span></label>
+        <input type="date" id="end_date" name="end_date"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          placeholder=" " required>
+      </div>
+    </div>
+  
+    <button type="submit"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center">Create
+      Sub-Task</button>
+  </form>
+
+{% endblock %}
