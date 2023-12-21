@@ -20,4 +20,4 @@ ENV FLASK_APP=main.py
 EXPOSE 8080
 
 # Run the command to start the Flask application
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
+CMD ["gunicorn", "main:app", "--bind", "0.0.0.0:8080", "--workers", "4"]
