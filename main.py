@@ -1046,4 +1046,4 @@ def custom_403(error):
     return render_template('403.html'), 403
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,host="0.0.0.0",port=8080)
