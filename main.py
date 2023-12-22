@@ -473,8 +473,8 @@ def register():
         user_role = request.form['user_role']
         creation_date = dt.datetime.utcnow() + dt.timedelta(hours=5, minutes=30)
 
-        if not email.endswith('@gwcteq.com'):
-            flash('Only gwcteq.com emails are allowed to register', 'warning')
+        if not email.endswith('@gwcdata.ai'):
+            flash('Only gwcdata.ai emails are allowed to register', 'warning')
             return redirect(url_for('register'))
 
         if password != confirm_password:
