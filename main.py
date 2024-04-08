@@ -228,7 +228,7 @@ def show_register():
     
         allowed_domains = ['gwcdata.ai', 'teqcertify.com']
         if not any(email.endswith(domain) for domain in allowed_domains):
-            flash('Only gwcteq.com and teqcertify.com emails are allowed to register', 'warning')
+            flash('Only gwcdata.ai and teqcertify.com emails are allowed to register', 'warning')
             return redirect(url_for('show_register'))
         
         if password != confirm_password:
