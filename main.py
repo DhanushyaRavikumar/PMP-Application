@@ -23,7 +23,7 @@ from google.cloud import storage
 # instance of flask application
 app = Flask(__name__)
 app.secret_key = 'aef2f0e3683344d0991eaeb046d983eb'
-con_string = "mysql+pymysql://user:12345678@34.93.30.29/gwcpmpnew"
+con_string = "mysql+pymysql://user:12345678@34.100.209.254/gwcpmpnew"
 app.config["SQLALCHEMY_DATABASE_URI"] = con_string
 engine = create_engine(con_string)
 db = SQLAlchemy(app)
